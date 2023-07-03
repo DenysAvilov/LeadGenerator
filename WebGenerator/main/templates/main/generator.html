@@ -1,0 +1,56 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+Lead Generator
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-6">
+            <h2 class="text-center">LEAD GENERATOR</h2><br><br>
+            <form method="post">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="id_keywords" class="form-label">Keywords <strong>(For example: Cafe, School, Bar)</strong></label>
+                    <input type="text" class="form-control" id="id_keywords" name="keywords" placeholder="Keywords">
+                </div>
+                <div class="mb-3">
+                    <label for="id_location" class="form-label">Location <strong>(For example: Paris, Bucha, Lviv)</strong></label>
+                    <input type="text" class="form-control" id="id_location" name="location" placeholder="Location">
+                </div>
+                <div class="mb-3">
+                    <label for="id_number" class="form-label">Lead number</label>
+                    <select class="form-select" id="id_number" name="number">
+                        <option value="1">1</option>
+                        <option value="10">10</option>
+                        <option value="25">25</option>
+                        <option value="50">50</option>
+                        <option value="100">100</option>
+                        <option value="250">250</option>
+                        <option value="500">500</option>
+                        <option value="1000">1000</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Send</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block extra_styles %}
+<style>
+    .footer {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        background-color: darkseagreen;
+        padding: 10px 0;
+        text-align: center;
+        color: black;
+    }
+</style>
+{% endblock %}

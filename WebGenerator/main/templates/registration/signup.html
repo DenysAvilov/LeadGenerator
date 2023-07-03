@@ -1,0 +1,50 @@
+{% extends "main/base.html" %}
+
+{% block title %}Sign Up{% endblock %}
+
+{% block content %}
+  <div class="container" style="text-align: center;">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <h2 class="text-center">Registration</h2>
+        <form method="post" class="mx-auto">
+          {% csrf_token %}
+          <div class="mb-3">
+            <label for="{{ form.username.id_for_label }}" class="form-label" style="display: block;">User Name</label>
+            <input type="text" class="form-control" id="{{ form.username.id_for_label }}" name="{{ form.username.html_name }}" required>
+          </div>
+          <div class="mb-3">
+            <label for="{{ form.password1.id_for_label }}" class="form-label" style="display: block;">Password</label>
+            <strong>Must contain letters and numbers, for example: user1234</strong>
+            <input type="text" class="form-control" id="{{ form.password1.id_for_label }}.id_for_label }}" name="{{ form.password1.html_name }}" required>
+            <small id="passwordHelp" class="form-text" style="color: black;">
+            </small>
+          </div>
+          <div class="mb-3">
+            <label for="{{ form.password2.id_for_label }}" class="form-label" style="display: block;">Confirm Password</label>
+            <input type="text" class="form-control" id="{{ form.password2.id_for_label }}.id_for_label }}" name="{{ form.password2.html_name }}" required>
+          </div>
+          <div class="text-center">
+            <button type="submit" class="btn btn-primary">Create account</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+{% block extra_styles %}
+  {{ block.super }}
+  <style>
+    .footer {
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      background-color: darkseagreen;
+      padding: 10px 0;
+      text-align: center;
+      color: black;
+    }
+  </style>
+{% endblock %}

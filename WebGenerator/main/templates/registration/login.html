@@ -1,0 +1,46 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+Авторизация
+{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6"><br><br>
+      <h2 class="text-center">Login</h2>
+      <form method="post">
+        {% csrf_token %}
+        <div class="mb-3">
+          <label for="username" class="form-label">User Name</label>
+          <input type="text" class="form-control" id="username" name="username" required>
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input type="password" class="form-control" id="password" name="password" required>
+        </div>
+        <div class="text-center">
+          <button type="submit" class="btn btn-primary">Sign in</button><br><br><br>
+          <a href="http://127.0.0.1:8000/accounts/signup/" class="btn btn-primary">Create your account right now!</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block extra_styles %}
+{{ block.super }}
+<style>
+  .footer {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        background-color: darkseagreen;
+        padding: 10px 0;
+        text-align: center;
+        color: black;
+    }
+</style>
+{% endblock %}
